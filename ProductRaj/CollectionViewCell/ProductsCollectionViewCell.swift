@@ -23,9 +23,7 @@ class ProductsCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         self.titleAndDesc.text = ""
         self.price.text = ""
-        self.price.textColor = UIColor.gray
         self.setUpLabel(label: self.titleAndDesc)
-        self.productCount.text = "(0)"
     }
     
     private func setUpLabel(label: UILabel) {
@@ -33,12 +31,18 @@ class ProductsCollectionViewCell: UICollectionViewCell {
         label.numberOfLines = 5
     }
     
-    func populateValues(model: ProductList) {
+    func populateValues(model: ProductList, cartListItem: [ProductList]) {
         
+        let filteredCartList = cartListItem.filter({$0.pID == model.pID})
+
         self.productCount.tag = model.pID!
-        if !(model.pCount.isEmpty) {
-            self.productCount.text = "(" + model.pCount + ")"
+        if !(filteredCartList.isEmpty) {
+            self.productStepper.value = Double(filteredCartList.first!.pCount)!
+            self.productCount.text = "(" + filteredCartList.first!.pCount + ")"
+        } else {
+            self.productCount.text = "(0)"
         }
+        
         ImageLoader.image(for: URL(string: model.image!)!) { image in
           self.productImage.image = image
         }
@@ -46,9 +50,10 @@ class ProductsCollectionViewCell: UICollectionViewCell {
         if !model.offerPrice!.isEmpty {
             self.price.text = model.offerPrice
             self.price.textColor = UIColor.orange
-            return
+        } else {
+            self.price.text = model.price
+            self.price.textColor = UIColor.gray
         }
-        self.price.text = model.price
     }
     
     @IBAction func counterValueChanges(_ sender: UIStepper) {

@@ -1,6 +1,15 @@
 import Foundation
  
-public class ProductList {
+public class ProductList: NSObject, NSCoding {
+    
+    public func encode(with coder: NSCoder) {
+        
+    }
+    
+    public required init?(coder: NSCoder) {
+        
+    }
+    
 	public var name : String?
 	public var price : String?
 	public var image : String?
@@ -47,7 +56,7 @@ public class ProductList {
         }
 	}
     
-    init() {
+    override init() {
         
     }
 		
