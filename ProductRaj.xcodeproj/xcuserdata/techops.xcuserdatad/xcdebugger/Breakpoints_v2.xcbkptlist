@@ -14,8 +14,8 @@
             filePath = "ProductRaj/Controller/ApiController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "readProductJSON()"
             landmarkType = "7">
          </BreakpointContent>
@@ -39,16 +39,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C76EDC62-656E-4329-BAE6-489434C70294"
+            uuid = "771A8471-CD6C-4406-8706-47AACB2A1E8F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ProductRaj/ViewModel/ProductViewModel.swift"
+            filePath = "ProductRaj/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "responseDataForProducts(respJson:)"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "getCounterData(productId:countValue:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

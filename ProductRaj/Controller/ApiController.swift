@@ -23,9 +23,7 @@ class ApiController: NSObject {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
                 let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
                 response = jsonResult as! [[String : Any]]
-                if (delegate != nil) {
-                    self.delegate?.responseDataForProducts(respJson: response)
-                }
+                self.delegate?.responseDataForProducts(respJson: response)
             } catch {
                 // handle error
             }
@@ -33,7 +31,7 @@ class ApiController: NSObject {
         return response
     }
     
-    public func getProductListFromServer(withUrl: String) {
+    public func getProductListFromServer(withUrl: String) { //make it as common 
         
         var apiResponse: [[String: Any]] = [[String: Any]]()
         var request = URLRequest(url: URL(string: withUrl)!)
@@ -46,15 +44,13 @@ class ApiController: NSObject {
                     do {
                         let jsonResult = try JSONSerialization.jsonObject(with: data!, options: .mutableLeaves)
                         apiResponse = jsonResult as! [[String : Any]]
-                        if (strongSelf.delegate != nil) {
                             strongSelf.delegate?.responseDataForProducts(respJson: apiResponse)
-                        }
+                        //to remove the reference
+                        //strongSelf.delegate? = nil
                         
                     } catch {
                         print("JSON Serialization error")
-                        if (strongSelf.delegate != nil) {
                             strongSelf.delegate?.responseDataForProducts(respJson: apiResponse)
-                        }
                     }
                 }
             }

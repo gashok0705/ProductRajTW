@@ -5,6 +5,8 @@ public class ProductList {
 	public var price : String?
 	public var image : String?
     public var offerPrice: String?
+    public var pID: Int?
+    public var pCount: String = ""
 
 /**
     Constructs the object based on the given dictionary.
@@ -37,6 +39,11 @@ public class ProductList {
             self.offerPrice = offerPrice_
         } else {
             self.offerPrice = ""
+        }
+        if let pID_ = dictionary["pid"] as? String {
+            self.pID = Int(pID_)
+        } else {
+            self.pID = 0
         }
 	}
     
