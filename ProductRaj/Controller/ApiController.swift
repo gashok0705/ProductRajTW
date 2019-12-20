@@ -20,15 +20,15 @@ class ApiController: NSObject {
         var response: [[String: Any]] = [[String: Any]]()
         if let path = Bundle.main.path(forResource: "ProductRaj/ProductJson", ofType: "json") {
             do {
-                  let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-                  let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
                 response = jsonResult as! [[String : Any]]
                 if (delegate != nil) {
                     self.delegate?.responseDataForProducts(respJson: response)
                 }
-              } catch {
-                   // handle error
-              }
+            } catch {
+                // handle error
+            }
         }
         return response
     }
@@ -38,18 +38,27 @@ class ApiController: NSObject {
         var apiResponse: [[String: Any]] = [[String: Any]]()
         var request = URLRequest(url: URL(string: withUrl)!)
         request.httpMethod = "GET"
-
+        
         URLSession.shared.dataTask(with: request, completionHandler: { data, response, error -> Void in
-            do {
-                let jsonResult = try JSONSerialization.jsonObject(with: data!, options: .mutableLeaves)
-                apiResponse = jsonResult as! [[String : Any]]
-                if (self.delegate != nil) {
-                    self.delegate?.responseDataForProducts(respJson: apiResponse)
+            
+            DispatchQueue.main.async { [weak self] in
+                if let strongSelf = self {
+                    do {
+                        let jsonResult = try JSONSerialization.jsonObject(with: data!, options: .mutableLeaves)
+                        apiResponse = jsonResult as! [[String : Any]]
+                        if (strongSelf.delegate != nil) {
+                            strongSelf.delegate?.responseDataForProducts(respJson: apiResponse)
+                        }
+                        
+                    } catch {
+                        print("JSON Serialization error")
+                        if (strongSelf.delegate != nil) {
+                            strongSelf.delegate?.responseDataForProducts(respJson: apiResponse)
+                        }
+                    }
                 }
-                
-            } catch {
-                print("JSON Serialization error")
             }
+            
         }).resume()
     }
 }

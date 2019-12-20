@@ -23,7 +23,7 @@ class ProductsCollectionViewCell: UICollectionViewCell {
     
     private func setUpLabel(label: UILabel) {
         label.lineBreakMode = .byWordWrapping
-        label.numberOfLines = 3
+        label.numberOfLines = 0
     }
     
     func populateValues(model: ProductList) {
@@ -37,7 +37,6 @@ class ProductsCollectionViewCell: UICollectionViewCell {
             return
         }
         self.price.text = model.price
-        self.price.textColor = UIColor.gray
     }
     
 }

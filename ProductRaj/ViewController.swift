@@ -28,13 +28,10 @@ class ViewController: UIViewController {
     }
     
     private func setUpCollectionViewDataSource() {
-        DispatchQueue.main.async { [weak self] in
-            if let strongSelf = self {
-                strongSelf.productCollectionView.dataSource = strongSelf
-                strongSelf.productCollectionView.delegate = strongSelf
-                strongSelf.productCollectionView.reloadData()
-            }
-        }
+        self.productCollectionView.dataSource = self
+        self.productCollectionView.delegate = self
+        self.productCollectionView.reloadData()
+        
     }
     
 }
