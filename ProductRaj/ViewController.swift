@@ -25,6 +25,11 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.viewModel.readDataFromUserDefaults()
+    }
+    
     private func getProductList() {
         self.viewModel.getProductsList()
     }
@@ -59,35 +64,15 @@ extension ViewController: ProductListDelegate, UICollectionViewDataSource, UICol
         var cell: UICollectionViewCell!
         if let cell_ = collectionView.dequeueReusableCell(withReuseIdentifier: ProductsCollectionViewCellIdentifier, for: indexPath) as? ProductsCollectionViewCell {
             let currentModel = self.viewModel.model[indexPath.row]
-            cell_.populateValues(model: currentModel)
+            cell_.populateValues(model: currentModel, cartListItem: self.viewModel.cartModel)
             cell_.delegate = self
             cell = cell_
         }
         return cell
     }
     
-    func getCounterData(productId: Int, countValue: String) { //Move to VM
-        
-        let productFromActualList = self.viewModel.model.filter({$0.pID == productId}).first
-        self.viewModel.model.filter{$0.pID == productId}.first?.pCount = String(countValue)
-        
-        if !(self.viewModel.cartModel.isEmpty) {
-            let productFromModelList = self.viewModel.cartModel.filter({$0.pID == productId})
-            if !(productFromModelList.isEmpty) {
-                if (countValue == "0") {
-                    self.viewModel.cartModel.removeAll(where: {$0.pID == productFromModelList.first?.pID})
-                } else {
-                    self.viewModel.cartModel.filter{$0.pID == productFromActualList?.pID}.first?.pCount = String(countValue)
-                }
-            } else {
-                productFromActualList?.pCount = countValue
-                self.viewModel.cartModel.append(productFromActualList!)
-            }
-        } else {
-            productFromActualList?.pCount = countValue
-            self.viewModel.cartModel.append(productFromActualList!)
-        }
-        
+    func getCounterData(productId: Int, countValue: String) {
+        self.viewModel.processCartModel(productId_: productId, countValue_: countValue)
     }
 }
 
