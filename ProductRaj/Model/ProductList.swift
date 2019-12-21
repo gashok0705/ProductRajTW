@@ -53,11 +53,22 @@ public class ProductList: NSObject, NSCoding {
     }
     
     public func encode(with coder: NSCoder) {
-        
+        coder.encode(name, forKey: "name")
+        coder.encode(price, forKey: "price")
+        coder.encode(image, forKey: "image")
+        coder.encode(offerPrice, forKey: "offerPrice")
+        coder.encode(pID, forKey: "pid")
+        coder.encode(pCount, forKey: "pCount")
     }
     
     public required init?(coder: NSCoder) {
         
+        self.name = coder.decodeObject(forKey: "name") as? String ?? ""
+        self.price = coder.decodeObject(forKey: "price") as? String ?? ""
+        self.image = coder.decodeObject(forKey: "image") as? String ?? ""
+        self.offerPrice = coder.decodeObject(forKey: "offerPrice") as? String ?? ""
+        self.pID = coder.decodeObject(forKey: "pid") as? Int ?? 0
+        self.pCount = coder.decodeObject(forKey: "pCount") as? String ?? ""
     }
 		
 /**

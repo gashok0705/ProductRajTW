@@ -22,6 +22,10 @@
 		62EBC0B823AC99290037849F /* ProductJson.json in Sources */ = {isa = PBXBuildFile; fileRef = 62EBC0B723AC99290037849F /* ProductJson.json */; };
 		62EBC0BA23AC99960037849F /* ApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EBC0B923AC99960037849F /* ApiController.swift */; };
 		62EBC0BC23ACB9F50037849F /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EBC0BB23ACB9F50037849F /* ImageLoader.swift */; };
+		62EBC0BE23ADD8510037849F /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EBC0BD23ADD8510037849F /* WishListViewController.swift */; };
+		62EBC0C023ADD8860037849F /* UserDefaultsUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EBC0BF23ADD8860037849F /* UserDefaultsUtility.swift */; };
+		62EBC0C223ADD9D20037849F /* WishListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EBC0C123ADD9D20037849F /* WishListViewModel.swift */; };
+		62EBC0C423ADDA090037849F /* WishLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EBC0C323ADDA090037849F /* WishLists.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +67,10 @@
 		62EBC0B723AC99290037849F /* ProductJson.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = ProductJson.json; path = ProductRaj/ProductJson.json; sourceTree = SOURCE_ROOT; };
 		62EBC0B923AC99960037849F /* ApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiController.swift; sourceTree = "<group>"; };
 		62EBC0BB23ACB9F50037849F /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		62EBC0BD23ADD8510037849F /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
+		62EBC0BF23ADD8860037849F /* UserDefaultsUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsUtility.swift; sourceTree = "<group>"; };
+		62EBC0C123ADD9D20037849F /* WishListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewModel.swift; sourceTree = "<group>"; };
+		62EBC0C323ADDA090037849F /* WishLists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishLists.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				62EBC07A23AC92DB0037849F /* ViewController.swift */,
+				62EBC0BD23ADD8510037849F /* WishListViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -161,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				62EBC0B023AC983B0037849F /* ProductViewModel.swift */,
+				62EBC0C123ADD9D20037849F /* WishListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -169,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				62EBC0B423AC98C60037849F /* ProductList.swift */,
+				62EBC0C323ADDA090037849F /* WishLists.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -193,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				62EBC0BB23ACB9F50037849F /* ImageLoader.swift */,
+				62EBC0BF23ADD8860037849F /* UserDefaultsUtility.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -330,11 +342,15 @@
 			files = (
 				62EBC0AF23AC97C60037849F /* Constants.swift in Sources */,
 				62EBC0AD23AC97B70037849F /* ProductsCollectionViewCell.swift in Sources */,
+				62EBC0C423ADDA090037849F /* WishLists.swift in Sources */,
+				62EBC0C223ADD9D20037849F /* WishListViewModel.swift in Sources */,
 				62EBC0BC23ACB9F50037849F /* ImageLoader.swift in Sources */,
+				62EBC0C023ADD8860037849F /* UserDefaultsUtility.swift in Sources */,
 				62EBC0B123AC983B0037849F /* ProductViewModel.swift in Sources */,
 				62EBC07B23AC92DB0037849F /* ViewController.swift in Sources */,
 				62EBC0B523AC98C60037849F /* ProductList.swift in Sources */,
 				62EBC07723AC92DB0037849F /* AppDelegate.swift in Sources */,
+				62EBC0BE23ADD8510037849F /* WishListViewController.swift in Sources */,
 				62EBC07923AC92DB0037849F /* SceneDelegate.swift in Sources */,
 				62EBC0B823AC99290037849F /* ProductJson.json in Sources */,
 				62EBC0BA23AC99960037849F /* ApiController.swift in Sources */,

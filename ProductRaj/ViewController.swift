@@ -13,11 +13,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var productCollectionView: UICollectionView!
     private var viewModel: ProductViewModel = ProductViewModel()
     private let ProductListSize: CGFloat = 200.0
-    private let navBarTitle: String = "Shopper"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = navBarTitle
         self.productCollectionView.dataSource = self
         self.productCollectionView.delegate = self
         self.viewModel.delegate = self
